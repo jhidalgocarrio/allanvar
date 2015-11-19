@@ -73,10 +73,13 @@ avarn <- function (values, freq)
 	
 		av[i] = sumvalue/(2*(length(omega)-1))
 		time[i] = T
-    
+
 		#Equation for error AV estimation
+		#See P. Lesage and C. Audoin, (1973) for further information
+                error[i] = sqrt(av[i]/((N/i)-1))
+
 		#See Papoulis (2002) for further information
-		error[i] = 1/sqrt(2*((N/i)-1))
+		#error[i] = 1/sqrt(2*((N/i)-1))
 
 	}
 

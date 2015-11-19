@@ -68,7 +68,7 @@ avar <- function (values, freq)
 		}
 		sumvalue <- 0
 	
-                #Perfome the difference of the average values
+                #Perfom the difference of the average values
 		for (k in 1: (length(omega)-1))
 		{
 			sumvalue = sumvalue + (omega[k+1]-omega[k])^2
@@ -79,8 +79,11 @@ avar <- function (values, freq)
 		time[i+1] = T #i+1 because i starts at 0 (2^0 = 1)
 
 		#Equation for error AV estimation
+		#See P. Lesage and C. Audoin, (1973) for further information
+                error[i+1] = sqrt(av[i+1]/((N/2^i)-1))
+
 		#See Papoulis (2002) for further information
-		error[i+1] = 1/sqrt(2*((N/(2^i))-1))
+	        #error[i+1] = 1/sqrt((N/(2^i))-1)
 	}
 
 	return (data.frame(time, av, error))

@@ -68,8 +68,11 @@ avari <- function (values, freq)
 		av[i+1] = sumvalue/(2*((T)^2)*(N-(2*(2^i)))) #i+1 because i starts at 0 (2^0 = 1)
 		time[i+1] = T #i+1 because i starts at 0 (2^0 = 1)
 		#Equation for error AV estimation
+		#See P. Lesage and C. Audoin, (1973) for further information
+                error[i+1] = sqrt(av[i+1]/((N/2^i)-1))
+
 		#See Papoulis (2002) for further information
-		error[i+1] = 1/sqrt(2*((N/(2^i))-1))
+		#error[i+1] = 1/sqrt(2*((N/(2^i))-1))
 	}
 
 	return (data.frame(time, av, error))
