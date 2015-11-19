@@ -49,7 +49,7 @@ avar <- function (values, freq)
 	#Percentage error array of the AV estimation
 	error <- rep(0,p+1)#0 and 1...p
 
-  print ("Calculating...")
+        print ("Calculating...")
 	# Minimal cluster size is 1 and max is 2^p
 	# in time would be 1*tau and max time would be (2^p)*tau
 	for (i in 0:(p))
@@ -68,18 +68,18 @@ avar <- function (values, freq)
 		}
 		sumvalue <- 0
 	
-	   #Perfome the difference of the average values
+                #Perfome the difference of the average values
 		for (k in 1: (length(omega)-1))
 		{
 			sumvalue = sumvalue + (omega[k+1]-omega[k])^2
 		}
 	
-    #Compute the final step for Allan Variance estimation
+                #Compute the final step for Allan Variance estimation
 		av[i+1] = sumvalue/(2*(length(omega)-1)) #i+1 because i starts at 0 (2^0 = 1)
 		time[i+1] = T #i+1 because i starts at 0 (2^0 = 1)
-    
+
 		#Equation for error AV estimation
-		#See Papoulis (1991) for further information
+		#See Papoulis (2002) for further information
 		error[i+1] = 1/sqrt(2*((N/(2^i))-1))
 	}
 

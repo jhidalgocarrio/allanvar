@@ -75,7 +75,7 @@ avarn <- function (values, freq)
 		time[i] = T
     
 		#Equation for error AV estimation
-		#See Papoulis (1991) for further information
+		#See Papoulis (2002) for further information
 		error[i] = 1/sqrt(2*((N/i)-1))
 
 	}
